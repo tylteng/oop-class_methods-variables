@@ -77,8 +77,10 @@ class Zombie
     if outrun == true && outstrength == true
       return "you escaped unscathed"
     elsif outrun == true && outstrength == false
+      @@horde << Zombie.new((rand(@@max_speed)), (rand(@@max_strength)))
       return "you escaped but you now have the plague"
     elsif outrun == false && outstrength == true
+      @@horde << Zombie.new((rand(@@max_speed)), (rand(@@max_strength)))
       return "you escaped but you now have the plague"
     else outrun == false && outstrength == false
       return "you have been killed by the zombie"
@@ -93,9 +95,11 @@ class Zombie
 
 end
 
-Zombie.new_day
+# Zombie.new_day
 # p Zombie.all.inspect
 
 tyler = Zombie.new(2, 6)
 
 p tyler.encounter
+
+p Zombie.all.inspect
